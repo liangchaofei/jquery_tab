@@ -1,0 +1,113 @@
+<!--
+ * @Author: your name
+ * @Date: 2019-10-15 23:00:24
+ * @LastEditTime: 2019-10-21 11:03:57
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /jquerytab/index.html
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>产品定价</title>
+<link rel="stylesheet" type="text/css" href="statics/css/style.css"/>
+</head>
+<body>
+	<div class="container">
+		<div class="price">
+			<div class="category">
+				<ul>
+					<li class="active">热门</li>
+					<li>计算</li>
+					<li>存储</li>
+					<li>视频服务</li>
+				
+				</ul>
+			</div>
+			<div class="cont active">
+				<ul>
+					<li>
+						<a href="#">
+							<div class="cont_main">
+								<h3 class="title">云服务器</h3>
+								<p class="desc">稳定安全，高易用可弹性伸缩的计算服务</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="cont">
+				<ul>
+					<li>
+						<a href="#">
+							<div class="cont_main">
+								<h3 class="title">计算</h3>
+								<p class="desc">稳定安全，高易用可弹性伸缩的计算服务</p>
+							</div>
+						</a>
+					</li>					
+				</ul>
+			</div>
+			<div class="cont">
+				<ul>
+					<li>
+						<a href="#">
+							<div class="cont_main">
+								<h3 class="title">存储</h3>
+								<p class="desc">稳定安全，高易用可弹性伸缩的计算服务</p>
+							</div>
+						</a>
+					</li>					
+				</ul>
+			</div>
+			<div class="cont">
+				<ul>
+					<li>
+						<a href="#">
+							<div class="cont_main">
+								<h3 class="title">视频服务</h3>
+								<p class="desc">稳定安全，高易用可弹性伸缩的计算服务</p>
+							</div>
+						</a>
+					</li>					
+				</ul>
+			</div>
+		</div>
+	</div>
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//选项卡切换
+		$('.category ul li').click(function(){
+			indexC = $(this).index();
+			$(this).addClass('active').siblings().removeClass('active');
+			$('.cont').eq(indexC).addClass('active').siblings().removeClass('active');
+		})
+		//按钮箭头
+		var catew = $('.category').width()-150;
+		var cateLiw = 0;
+		$('.category ul li').each(function(){
+			cateLiw +=$(this).outerWidth();
+		})
+		var i =0;
+		$('.next').click(function(){
+			$('.category ul').animate({
+				"margin-left":-catew+'px'
+			},500)
+			i++;
+			if((catew+150)*i+(catew+150)>=cateLiw){
+				$('.prev').show();
+				$('.next').hide();
+			}
+		})
+		$('.prev').click(function(){
+			$('.category ul').animate({
+				"margin-left":0+'px'
+			},500)
+			$(this).hide();$('.next').show();
+		})
+	})
+</script>
+</body>
+</html>
